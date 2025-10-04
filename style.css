@@ -1,0 +1,129 @@
+/* General styles */
+* { margin: 0; padding: 0; box-sizing: border-box; font-family: "Poppins", sans-serif; }
+body { min-height: 100vh; overflow-x: hidden; transition: background 1s ease, color 0.3s ease; }
+body.dark { color: #fff; }
+
+/* Weather backgrounds */
+body.sunny { background: linear-gradient(135deg, #fddb92, #d1fdff); }
+body.cloudy { background: linear-gradient(135deg, #d7d2cc, #304352); }
+body.rainy { background: linear-gradient(135deg, #2c3e50, #4ca1af); }
+body.snowy { background: linear-gradient(135deg, #83a4d4, #b6fbff); }
+body.stormy { background: linear-gradient(135deg, #232526, #414345); }
+body.misty { background: linear-gradient(135deg, #606c88, #3f4c6b); }
+
+/* App container */
+.app {
+  position: absolute; top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  width: 90%; max-width: 800px;
+  background: rgba(255,255,255,0.2);
+  border-radius: 20px; backdrop-filter: blur(10px);
+  padding: 25px; text-align: center;
+  box-shadow: 0 4px 30px rgba(0,0,0,0.2);
+  color: #000; z-index: 3; transition: all 0.3s ease;
+}
+body.dark .app { background: rgba(0,0,0,0.3); color: #fff; }
+
+/* Header */
+header { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; margin-bottom: 20px; }
+header h1 { font-size: 1.5rem; margin-bottom: 10px; }
+.top-controls { display: flex; flex-wrap: wrap; gap: 10px; }
+
+/* Search bar */
+.search-bar { display: flex; flex-direction: column; position: relative; }
+.search-bar input {
+  background: rgba(255,255,255,0.8);
+  border: 1px solid #ccc;
+  padding: 8px 12px;
+  border-radius: 10px;
+  font-size: 1rem;
+  color: #000;
+  outline: none;
+  transition: all 0.3s ease;
+}
+.search-bar button {
+  background: rgba(255,255,255,0.8);
+  border: 1px solid #ccc;
+  color: #000;
+  padding: 8px 12px;
+  border-radius: 10px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 5px;
+}
+.search-bar button:hover {
+  background: rgba(240,240,240,0.9);
+}
+
+/* Dark mode adaptation for search */
+body.dark .search-bar input,
+body.dark .search-bar button {
+  background: rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(255,255,255,0.2);
+  color: #fff;
+}
+body.dark .search-bar button:hover {
+  background: rgba(50,50,50,0.5);
+}
+
+/* Suggestions */
+.suggestions {
+  position: absolute; top: 38px; left: 0; width: 180px;
+  background: rgba(255,255,255,0.9); border-radius: 10px; max-height: 200px; overflow-y: auto;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2); display: none; z-index: 10;
+  transition: all 0.3s ease;
+}
+.suggestion-item { padding: 8px 12px; cursor: pointer; transition: background 0.3s, color 0.3s; }
+.suggestion-item:hover { background: #0077ff; color: #fff; }
+
+/* Dark mode suggestions */
+body.dark .suggestions {
+  background: rgba(0,0,0,0.6);
+  color: #fff;
+  border: 1px solid rgba(255,255,255,0.2);
+}
+body.dark .suggestion-item:hover {
+  background: #555;
+  color: #fff;
+}
+
+/* Theme toggle */
+.theme-toggle { background: transparent; border: none; font-size: 22px; cursor: pointer; color: inherit; }
+
+/* Weather card */
+.weather-card img { width: 100px; height: 100px; }
+
+/* Forecast container */
+.forecast-container { display: flex; justify-content: center; flex-wrap: wrap; gap: 15px; margin: 0 auto; max-width: 700px; }
+.forecast-card {
+  background: rgba(255,255,255,0.3); border-radius: 15px; padding: 15px; width: 120px; transition: 0.3s;
+}
+.forecast-card:hover { transform: scale(1.05); }
+.forecast-card img { width: 60px; height: 60px; }
+
+/* Dark mode forecast cards */
+body.dark .forecast-card { background: rgba(0,0,0,0.3); }
+
+/* Weather effects */
+#weatherCanvas, #clouds, #lightning { position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; }
+#weatherCanvas { z-index: 1; } #clouds { z-index: 2; } #lightning { z-index: 2; opacity: 0; }
+
+/* Cloud animation */
+.cloud { position: absolute; background: rgba(255,255,255,0.8); border-radius: 50%; z-index: 2; animation: floatClouds linear infinite; }
+@keyframes floatClouds { from { transform: translateX(-200px); } to { transform: translateX(120vw); } }
+
+/* Lightning */
+@keyframes flash { 0% {opacity:0;} 10%{opacity:.8;} 20%{opacity:0;} 30%{opacity:.6;} 40%{opacity:0;} 100%{opacity:0;} }
+
+/* Responsive */
+@media (max-width: 768px) {
+  .forecast-card { width: 100px; }
+  header { flex-direction: column; gap:10px; }
+  .search-bar input { width:140px; }
+}
+@media (max-width: 480px) {
+  .forecast-container { flex-direction: column; gap:10px; }
+  .forecast-card { width: 100%; }
+  .search-bar input { width:120px; font-size:.9rem; }
+}
