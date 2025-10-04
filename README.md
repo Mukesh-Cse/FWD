@@ -1,8 +1,5 @@
 # 🌤️ Dynamic Weather Dashboard
 
-![GitHub last commit](https://img.shields.io/github/last-commit/your-username/dynamic-weather-dashboard)
-![GitHub repo size](https://img.shields.io/github/repo-size/your-username/dynamic-weather-dashboard)
-![License](https://img.shields.io/badge/License-MIT-blue)
 
 A **modern, interactive weather dashboard** that provides **real-time weather updates** and a **5-day forecast** for any location. The dashboard features **animated backgrounds**, a **dark/light theme toggle**, **geolocation support**, and **smart city search with autocomplete**.
 
@@ -10,7 +7,7 @@ A **modern, interactive weather dashboard** that provides **real-time weather up
 
 ## 🚀 Live Demo
 
-Check out the live demo here: [Dynamic Weather Dashboard Live](https://your-username.github.io/dynamic-weather-dashboard/)
+Check out the live demo here: [Weather Dashboard Live](https://weatherxio.vercel.app/)
 
 ---
 
@@ -36,6 +33,3 @@ Check out the live demo here: [Dynamic Weather Dashboard Live](https://your-user
 - **Icons & Fonts**: FontAwesome  
 
 ---
-
-## 📂 Folder Structure
-
